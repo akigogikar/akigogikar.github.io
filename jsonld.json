@@ -4,7 +4,7 @@
   "@type": "Person",
   "@id": "https://akigogikar.com/#person",
   "name": "Aki Gogikar",
-  "alternateName": ["Akhilesh Gogikar", "Aki (Akhilesh) Gogikar"],
+  "alternateName": ["Akhilesh Gogikar", "Akhilesh (Aki) Gogikar"],
   "url": "https://akigogikar.com/",
   "email": "aki@onenew.ai",
   "jobTitle": "Founder and Executive Vice President",
@@ -13,7 +13,7 @@
     "name": "Mendel Info Labs LLC",
     "url": "https://www.mendelinfolabs.com"
   },
-  "description": "Aki (Akhilesh) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He is the author of Linearity, Non-linearity and Chaos and writes about responsible AI, agent security, systems and complexity.",
+  "description": "Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He is the author of Linearity, Non-linearity and Chaos and writes about responsible AI, agent security, systems and complexity.",
   "knowsAbout": ["Agent security", "AI governance", "HIPAA-aligned AI deployment", "Dynamical systems"],
   "sameAs": [
     "https://www.linkedin.com/in/akigogikar",

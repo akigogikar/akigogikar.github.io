@@ -1,6 +1,6 @@
 # Aki Gogikar
 
-> Aki (Akhilesh) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He builds auditable, sovereign AI for regulated industries, and writes about responsible AI, agent security, systems and complexity.
+> Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He builds auditable, sovereign AI for regulated industries, and writes about responsible AI, agent security, systems and complexity.
 
 Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/llms.txt
 
@@ -8,7 +8,7 @@ Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/l
 
 - Professional name: Aki Gogikar — used across business, technical, and speaking contexts
 - Author and legal byline: Akhilesh Gogikar — used on books, papers, and filings
-- Both names refer to the same person; the canonical written form is "Aki (Akhilesh) Gogikar"
+- Both names refer to the same person; the canonical written form is "Akhilesh (Aki) Gogikar"
 
 ## Role
 
