@@ -1,29 +1,70 @@
 {
-  "_deploy": "Already embedded inline in index.html <head>. Keep the two copies identical (minus keys starting with _). This file is the source of truth for any other surface that needs the Person graph.",
+  "_deploy": "Already embedded inline in index.html <head>. Keep the two copies identical (minus keys starting with _). This file is the source of truth for any other surface that needs the public graph.",
   "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "https://akigogikar.com/#person",
-  "name": "Aki Gogikar",
-  "alternateName": ["Akhilesh Gogikar", "Akhilesh (Aki) Gogikar"],
-  "url": "https://akigogikar.com/",
-  "email": "aki@onenew.ai",
-  "jobTitle": "Founder and Executive Vice President",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Mendel Info Labs LLC",
-    "url": "https://www.mendelinfolabs.com"
-  },
-  "description": "Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He is the author of Linearity, Non-linearity and Chaos and writes about responsible AI, agent security, systems and complexity.",
-  "knowsAbout": ["Agent security", "AI governance", "HIPAA-aligned AI deployment", "Dynamical systems"],
-  "sameAs": [
-    "https://www.linkedin.com/in/akigogikar",
-    "https://github.com/Akhilesh-Gogikar",
-    "https://github.com/akigogikar",
-    "https://huggingface.co/AkiGogikar",
-    "https://medium.com/@akhileshgogikar",
-    "https://iitkgp.academia.edu/AkhileshGogikar",
-    "https://arxiv.org/abs/2607.14516",
-    "https://www.youtube.com/@Cerebral-Insights"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://akigogikar.com/#website",
+      "url": "https://akigogikar.com/",
+      "name": "Aki Gogikar",
+      "description": "AI governance, agent security and private AI infrastructure for regulated teams.",
+      "inLanguage": "en-US",
+      "publisher": { "@id": "https://akigogikar.com/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://akigogikar.com/#profile",
+      "url": "https://akigogikar.com/",
+      "name": "Aki Gogikar | AI Governance & Agent Security",
+      "isPartOf": { "@id": "https://akigogikar.com/#website" },
+      "mainEntity": { "@id": "https://akigogikar.com/#person" },
+      "dateModified": "2026-08-19",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://akigogikar.com/#person",
+      "name": "Aki Gogikar",
+      "alternateName": ["Akhilesh Gogikar", "Akhilesh (Aki) Gogikar"],
+      "url": "https://akigogikar.com/",
+      "image": "https://akigogikar.com/assets/aki-gogikar.jpg",
+      "email": "aki@onenew.ai",
+      "jobTitle": "Founder and Executive Vice President",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Mendel Info Labs LLC",
+        "url": "https://www.mendelinfolabs.com"
+      },
+      "description": "Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He researches and writes about AI governance, agent security, private AI infrastructure, machine learning systems and complexity.",
+      "knowsAbout": [
+        "AI governance",
+        "Agent security",
+        "Auditable AI",
+        "Private AI infrastructure",
+        "Machine learning optimization",
+        "Dynamical systems"
+      ],
+      "subjectOf": { "@id": "https://akigogikar.com/#rk-adam-paper" },
+      "sameAs": [
+        "https://www.linkedin.com/in/akigogikar",
+        "https://github.com/Akhilesh-Gogikar",
+        "https://github.com/akigogikar",
+        "https://huggingface.co/AkiGogikar",
+        "https://medium.com/@akhileshgogikar",
+        "https://iitkgp.academia.edu/AkhileshGogikar",
+        "https://arxiv.org/abs/2607.14516",
+        "https://www.youtube.com/@Cerebral-Insights"
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://akigogikar.com/#rk-adam-paper",
+      "url": "https://arxiv.org/abs/2607.14516",
+      "headline": "Adaptive Runge-Kutta Step Control Buys Training Loss, Not Generalization: An Honest Compute-Matched Study of RK-Adam Optimizers",
+      "datePublished": "2026-07-16",
+      "author": { "@id": "https://akigogikar.com/#person" },
+      "codeRepository": "https://github.com/akigogikar/RK4Optimizer"
+    }
   ],
-  "_todo": "Add the Substack URL to sameAs once the newsletter is live. Drop the duplicate GitHub entry after the two accounts are consolidated onto akigogikar."
+  "_todo": "Add a newsletter URL to sameAs only after it is live; consolidate the two GitHub identities when the account migration is complete."
 }

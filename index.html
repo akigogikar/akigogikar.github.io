@@ -3,59 +3,110 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--
-      DRAFT — owner reviews before this goes live at https://akigogikar.com.
-      Every claim on this page traces to catalog/public-presence-registry.json
-      or setup/onenew-marketing/claim-ledger.csv. Do not add customer counts,
-      revenue, awards, benchmark numbers, or compliance certifications here
-      without an owner-confirmed ledger entry.
-      Search-for-TODO before publishing: unpublished essay + book links.
-    -->
+    <!-- Keep public claims verifiable. Do not add customer counts, revenue,
+      awards, benchmark numbers, or certifications without owner-approved
+      evidence. -->
     <meta
       name="description"
-      content="Akhilesh (Aki) Gogikar — founder and EVP of Mendel Info Labs. Auditable, sovereign AI for regulated industries: OneNew, a private AI workspace, and ActPass, deterministic permission checks for AI agents."
+      content="Aki Gogikar builds auditable, private AI for regulated teams. Explore his work on AI governance, agent security, OneNew and ActPass."
     >
+    <meta name="author" content="Akhilesh (Aki) Gogikar">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#08131f">
     <link rel="canonical" href="https://akigogikar.com/">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="alternate" href="/llms.txt" type="text/plain" title="LLM-readable profile">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://akigogikar.com/">
-    <meta property="og:title" content="Aki Gogikar — auditable, sovereign AI for regulated industries">
+    <meta property="og:site_name" content="Aki Gogikar">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Aki Gogikar | AI Governance &amp; Agent Security">
     <meta
       property="og:description"
-      content="Founder and EVP, Mendel Info Labs. OneNew: a private AI workspace on your own cloud. ActPass: deterministic allow / deny / needs-approval checks for AI agents."
+      content="Auditable, private AI for regulated teams — from the founder of Mendel Info Labs and builder of OneNew and ActPass."
     >
     <meta property="og:image" content="https://akigogikar.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Aki Gogikar — AI governance, agent security and private AI">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aki Gogikar | AI Governance &amp; Agent Security">
+    <meta
+      name="twitter:description"
+      content="Auditable, private AI for regulated teams — OneNew, ActPass, research and writing."
+    >
     <meta name="twitter:image" content="https://akigogikar.com/assets/og-image.jpg">
-    <title>Aki Gogikar — Founder &amp; EVP, Mendel Info Labs</title>
-    <link rel="stylesheet" href="styles.css?v=2">
+    <meta name="twitter:image:alt" content="Aki Gogikar — AI governance, agent security and private AI">
+    <title>Aki Gogikar | AI Governance &amp; Agent Security</title>
+    <link rel="stylesheet" href="styles.css?v=3">
     <!-- Keep this block byte-identical to jsonld.json (minus _-prefixed keys). -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://akigogikar.com/#person",
-        "name": "Aki Gogikar",
-        "alternateName": ["Akhilesh Gogikar", "Akhilesh (Aki) Gogikar"],
-        "url": "https://akigogikar.com/",
-        "email": "aki@onenew.ai",
-        "jobTitle": "Founder and Executive Vice President",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Mendel Info Labs LLC",
-          "url": "https://www.mendelinfolabs.com"
-        },
-        "description": "Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He is the author of Linearity, Non-linearity and Chaos and writes about responsible AI, agent security, systems and complexity.",
-        "knowsAbout": ["Agent security", "AI governance", "HIPAA-aligned AI deployment", "Dynamical systems"],
-        "sameAs": [
-          "https://www.linkedin.com/in/akigogikar",
-          "https://github.com/Akhilesh-Gogikar",
-          "https://github.com/akigogikar",
-          "https://huggingface.co/AkiGogikar",
-          "https://medium.com/@akhileshgogikar",
-          "https://iitkgp.academia.edu/AkhileshGogikar",
-          "https://arxiv.org/abs/2607.14516",
-          "https://www.youtube.com/@Cerebral-Insights"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://akigogikar.com/#website",
+            "url": "https://akigogikar.com/",
+            "name": "Aki Gogikar",
+            "description": "AI governance, agent security and private AI infrastructure for regulated teams.",
+            "inLanguage": "en-US",
+            "publisher": { "@id": "https://akigogikar.com/#person" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://akigogikar.com/#profile",
+            "url": "https://akigogikar.com/",
+            "name": "Aki Gogikar | AI Governance & Agent Security",
+            "isPartOf": { "@id": "https://akigogikar.com/#website" },
+            "mainEntity": { "@id": "https://akigogikar.com/#person" },
+            "dateModified": "2026-08-19",
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "Person",
+            "@id": "https://akigogikar.com/#person",
+            "name": "Aki Gogikar",
+            "alternateName": ["Akhilesh Gogikar", "Akhilesh (Aki) Gogikar"],
+            "url": "https://akigogikar.com/",
+            "image": "https://akigogikar.com/assets/aki-gogikar.jpg",
+            "email": "aki@onenew.ai",
+            "jobTitle": "Founder and Executive Vice President",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Mendel Info Labs LLC",
+              "url": "https://www.mendelinfolabs.com"
+            },
+            "description": "Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He researches and writes about AI governance, agent security, private AI infrastructure, machine learning systems and complexity.",
+            "knowsAbout": [
+              "AI governance",
+              "Agent security",
+              "Auditable AI",
+              "Private AI infrastructure",
+              "Machine learning optimization",
+              "Dynamical systems"
+            ],
+            "subjectOf": { "@id": "https://akigogikar.com/#rk-adam-paper" },
+            "sameAs": [
+              "https://www.linkedin.com/in/akigogikar",
+              "https://github.com/Akhilesh-Gogikar",
+              "https://github.com/akigogikar",
+              "https://huggingface.co/AkiGogikar",
+              "https://medium.com/@akhileshgogikar",
+              "https://iitkgp.academia.edu/AkhileshGogikar",
+              "https://arxiv.org/abs/2607.14516",
+              "https://www.youtube.com/@Cerebral-Insights"
+            ]
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://akigogikar.com/#rk-adam-paper",
+            "url": "https://arxiv.org/abs/2607.14516",
+            "headline": "Adaptive Runge-Kutta Step Control Buys Training Loss, Not Generalization: An Honest Compute-Matched Study of RK-Adam Optimizers",
+            "datePublished": "2026-07-16",
+            "author": { "@id": "https://akigogikar.com/#person" },
+            "codeRepository": "https://github.com/akigogikar/RK4Optimizer"
+          }
         ]
       }
     </script>
@@ -70,9 +121,9 @@
       </a>
       <nav aria-label="Primary">
         <a href="#work">Work</a>
-        <a href="#writing">Writing</a>
+        <a href="#writing">Research</a>
         <a href="#about">About</a>
-        <a class="nav-cta" href="mailto:aki@onenew.ai?subject=Hello">Contact</a>
+        <a class="nav-cta" href="/press/">Press</a>
       </nav>
     </header>
 
@@ -81,17 +132,16 @@
         <figure class="hero-portrait" aria-hidden="false">
           <img src="assets/aki-gogikar.jpg?v=3" alt="Portrait of Aki Gogikar" width="1200" height="1200" loading="eager">
         </figure>
-        <p class="eyebrow">Akhilesh (Aki) Gogikar</p>
-        <h1>AI you can put in front of<br><em>an auditor.</em></h1>
+        <p class="eyebrow">AI governance · agent security · private AI</p>
+        <h1>AI you can explain,<br><em>control, and audit.</em></h1>
         <p class="hero-lede">
-          I build AI infrastructure for teams that can't afford to guess what
-          their AI just did — healthcare, finance, and legal organizations that
-          need modern AI without handing their data to a shared cloud, and
-          engineering teams that need to prove what an agent was allowed to do.
+          I'm Aki Gogikar, founder of Mendel Info Labs and builder of OneNew and
+          ActPass. I help regulated teams deploy useful AI without losing
+          control of their data, their agents, or the evidence they need later.
         </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#work">See what I build</a>
-          <a class="button button-secondary" href="#writing">Read the essays</a>
+          <a class="button button-primary" href="#work">Explore my work</a>
+          <a class="button button-secondary" href="mailto:aki@onenew.ai?subject=Speaking%20or%20collaboration%20inquiry">Invite me to speak</a>
         </div>
         <dl class="hero-meta">
           <div>
@@ -99,12 +149,12 @@
             <dd>Founder &amp; EVP, <a href="https://www.mendelinfolabs.com">Mendel Info Labs</a></dd>
           </div>
           <div>
-            <dt>Building</dt>
+            <dt>Products</dt>
             <dd><a href="https://onenew.ai">OneNew</a> · <a href="https://actpass.org">ActPass</a></dd>
           </div>
           <div>
-            <dt>Contact</dt>
-            <dd><a href="mailto:aki@onenew.ai">aki@onenew.ai</a></dd>
+            <dt>Research</dt>
+            <dd><a href="https://arxiv.org/abs/2607.14516">Machine learning systems</a></dd>
           </div>
         </dl>
       </section>
@@ -170,45 +220,53 @@
       <section class="section section-dark" id="writing">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Writing</p>
-            <h2>Ideas underneath the products.</h2>
+            <p class="eyebrow">Research &amp; writing</p>
+            <h2>Published work, not just promises.</h2>
           </div>
           <p>
-            The arguments here stand on their own — you should be able to
-            disagree with me about ActPass and still find them useful. When I
-            write about something we sell, I say so.
+            I publish methods, code, and results so the work can be challenged
+            and reused. My interests span auditable AI, agent boundaries,
+            private infrastructure, optimization, and complex systems.
           </p>
         </div>
 
         <div class="grid">
-          <!-- TODO before publish: add href once each essay is live on Substack. -->
           <article class="card">
-            <p class="chip">Essay · publishing soon</p>
-            <h3>Your agent doesn't need better judgment. It needs a boundary.</h3>
+            <p class="chip">Research paper · arXiv · 2026</p>
+            <h3>Adaptive Runge-Kutta step control for RK-Adam</h3>
             <p>
-              Why probabilistic self-policing keeps failing at the exact moment
-              it matters, and what a deterministic boundary buys you instead.
+              A compute-matched machine learning study asking whether adaptive
+              Runge-Kutta optimization improves generalization, with the method,
+              limitations, and mixed results made explicit.
             </p>
+            <a class="text-link" href="https://arxiv.org/abs/2607.14516">
+              Read the paper <span aria-hidden="true">↗</span>
+            </a>
           </article>
 
           <article class="card">
-            <p class="chip">Essay · publishing soon</p>
-            <h3>HIPAA-grade private AI</h3>
+            <p class="chip">Open research · GitHub</p>
+            <h3>RK4Optimizer</h3>
             <p>
-              What it actually takes to run useful AI inside a regulated
-              perimeter — and which of the usual shortcuts don't survive
-              contact with a real review.
+              Code, data, figures, and the reproducibility trail behind the
+              RK-Adam paper. The repository makes the compute accounting and
+              negative results inspectable rather than hiding them.
             </p>
+            <a class="text-link" href="https://github.com/akigogikar/RK4Optimizer">
+              Explore the code <span aria-hidden="true">↗</span>
+            </a>
           </article>
 
           <article class="card">
-            <p class="chip">Essay · publishing soon</p>
-            <h3>Audit trails as an alignment primitive</h3>
+            <p class="chip">Essays · Medium</p>
+            <h3>Writing archive</h3>
             <p>
-              Alignment work argues about what a model intends. A tamper-evident
-              record of what it did is cheaper, verifiable today, and does more
-              of the work than it gets credit for.
+              Notes on artificial intelligence, data, systems, and the practical
+              work of turning technical ideas into decisions people can use.
             </p>
+            <a class="text-link" href="https://medium.com/@akhileshgogikar">
+              Browse the archive <span aria-hidden="true">↗</span>
+            </a>
           </article>
 
           <article class="card">
@@ -219,17 +277,14 @@
               and machines. Published under my author byline,
               <strong>Akhilesh Gogikar</strong>.
             </p>
-            <!-- TODO before publish: link to the retailer page once confirmed. -->
           </article>
         </div>
 
         <div class="note">
           <span class="status-dot" aria-hidden="true"></span>
           <p>
-            Essay links go live as each piece publishes. For interviews,
-            review copies, or press artwork, see the
-            <!-- TODO before publish: point at the deployed press-kit/ URL. -->
-            <a href="/press/">press kit</a>.
+            Looking for an interview guest, speaker, research collaborator, or
+            technical reviewer? Start with the <a href="/press/">press and speaking page</a>.
           </p>
         </div>
       </section>
@@ -248,21 +303,21 @@
             </p>
             <p>
               I lead product and engineering across OneNew and ActPass. Most of
-              what I think about sits at the seam between the two: how do you
-              give a team real AI capability, and still be able to answer an
-              auditor's question about what happened six months ago?
+              my work sits at the seam between the two. How do you give a team
+              real AI capability and still answer an auditor's question about
+              what happened six months ago?
             </p>
             <p>
               I write about compliance-first AI, agent security, and dynamical
-              systems. If you're working on any of that — or you're a regulated
-              team trying to figure out what's actually safe to deploy — I'm
-              easy to reach.
+              systems. I aim to make difficult technical and governance choices
+              easier to discuss, test, and defend. If you're working on any of
+              that, or trying to decide what is safe to deploy, I'm
+              easy to reach and happy to compare notes.
             </p>
           </div>
 
           <div>
             <p class="eyebrow">Elsewhere</p>
-            <!-- TODO: after the GitHub consolidation, keep a single account link. -->
             <ul class="elsewhere">
               <li>
                 <a href="https://www.linkedin.com/in/akigogikar">
@@ -295,11 +350,12 @@
       </section>
 
       <section class="contact">
-        <p class="eyebrow">Pilots, press, podcasts, collaboration</p>
-        <h2>Start a conversation.</h2>
+        <p class="eyebrow">AI governance · press · podcasts · collaboration</p>
+        <h2>Bring me the hard question.</h2>
         <p>
-          Tell me what you're building and what you're accountable for. If
-          OneNew or ActPass isn't the right answer, I'll say so.
+          Working through a difficult AI governance or agent-security problem?
+          Tell me what you're building and what you're accountable for. I read
+          every note, and if OneNew or ActPass isn't the right answer, I'll say so.
         </p>
         <a class="button button-primary" href="mailto:aki@onenew.ai?subject=Hello%20from%20akigogikar.com">
           Email aki@onenew.ai

@@ -1,6 +1,6 @@
 # Aki Gogikar
 
-> Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He builds auditable, sovereign AI for regulated industries, and writes about responsible AI, agent security, systems and complexity.
+> Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He builds auditable, private AI for regulated teams and researches AI governance, agent security, machine learning systems and complexity.
 
 Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/llms.txt
 
@@ -23,7 +23,16 @@ Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/l
 ## Writing
 
 - Author, *Linearity, Non-linearity and Chaos* (byline: Akhilesh Gogikar)
-- Essays on deterministic guardrails for agents, HIPAA-grade private AI, and audit trails as an alignment primitive
+- Author, [Adaptive Runge-Kutta Step Control Buys Training Loss, Not Generalization](https://arxiv.org/abs/2607.14516), a compute-matched RK-Adam optimizer study
+- [RK4Optimizer](https://github.com/akigogikar/RK4Optimizer): code, data and figures for the RK-Adam study
+- [Medium archive](https://medium.com/@akhileshgogikar): essays on artificial intelligence, data and systems
+
+## Topics for interviews and collaboration
+
+- AI governance for regulated teams
+- Deterministic permission boundaries for AI agents
+- Private AI infrastructure and auditability
+- Reproducible machine learning research
 
 ## Elsewhere
 
