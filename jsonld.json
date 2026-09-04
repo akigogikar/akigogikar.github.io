@@ -7,7 +7,7 @@
       "@id": "https://akigogikar.com/#website",
       "url": "https://akigogikar.com/",
       "name": "Aki Gogikar",
-      "description": "AI governance, agent security and private AI infrastructure for regulated teams.",
+      "description": "Private AI systems, agent governance and organizational memory built around organizations.",
       "inLanguage": "en-US",
       "publisher": { "@id": "https://akigogikar.com/#person" }
     },
@@ -15,10 +15,10 @@
       "@type": "ProfilePage",
       "@id": "https://akigogikar.com/#profile",
       "url": "https://akigogikar.com/",
-      "name": "Aki Gogikar | AI Governance & Agent Security",
+      "name": "Aki Gogikar | Private AI Built Around Organizations",
       "isPartOf": { "@id": "https://akigogikar.com/#website" },
       "mainEntity": { "@id": "https://akigogikar.com/#person" },
-      "dateModified": "2026-08-19",
+      "dateModified": "2026-09-04",
       "inLanguage": "en-US"
     },
     {
@@ -35,12 +35,15 @@
         "name": "Mendel Info Labs LLC",
         "url": "https://www.mendelinfolabs.com"
       },
-      "description": "Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He researches and writes about AI governance, agent security, private AI infrastructure, machine learning systems and complexity.",
+      "description": "Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNewAI and ActPass. He builds private, controlled AI systems for privacy-aware organizations and researches agent governance, organizational memory, efficient inference, machine learning systems and complexity.",
       "knowsAbout": [
         "AI governance",
         "Agent security",
         "Auditable AI",
         "Private AI infrastructure",
+        "AI agent infrastructure",
+        "Organizational memory",
+        "Private model serving",
         "Machine learning optimization",
         "Dynamical systems"
       ],

@@ -1,6 +1,6 @@
 # Aki Gogikar
 
-> Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He builds auditable, private AI for regulated teams and researches AI governance, agent security, machine learning systems and complexity.
+> Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNewAI and ActPass. He builds private, controlled AI systems around privacy-aware organizations and researches agent governance, organizational memory, efficient inference, machine learning systems and complexity.
 
 Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/llms.txt
 
@@ -13,12 +13,12 @@ Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/l
 ## Role
 
 - Founder and Executive Vice President, Mendel Info Labs LLC (https://www.mendelinfolabs.com)
-- Leads product and engineering across OneNew and ActPass
+- Leads product and engineering across OneNewAI and ActPass
 
 ## What he builds
 
-- [OneNew](https://onenew.ai): fully managed, private AI workspace that runs on your own cloud, for healthcare, finance, and legal teams
-- [ActPass](https://actpass.org): permission checks for AI agents — deterministic allow / deny / needs-approval per consequential action, with a tamper-evident evidence ledger
+- [OneNewAI](https://onenew.ai): the single customer-facing offer for private AI built around each organization; its service model is designed to discover the requirement, design the controlled solution, connect approved data, provision a managed private-AI Workspace on customer-controlled infrastructure, and operate it with the customer, with a broader direction spanning Workspace, API, Desktop, organizational memory, private model access, and approved custom tools
+- [ActPass](https://actpass.org): a separate, vendor-neutral governance product that evaluates consequential agent actions as allow, deny, or needs approval before execution
 
 ## Writing
 
@@ -29,9 +29,10 @@ Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/l
 
 ## Topics for interviews and collaboration
 
-- AI governance for regulated teams
+- Private AI services built around organizations
 - Deterministic permission boundaries for AI agents
-- Private AI infrastructure and auditability
+- Customer-controlled infrastructure and organizational memory
+- Efficient private inference
 - Reproducible machine learning research
 
 ## Elsewhere
