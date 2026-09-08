@@ -1,0 +1,18 @@
+.analytics-choice {
+  position: fixed; bottom: 1rem; left: 1rem; right: 1rem; z-index: 100;
+  max-width: 42rem; margin: auto; padding: 1.25rem; border: 2px solid #718396;
+  border-radius: .5rem; background: #08131f; color: #fff;
+  box-shadow: 0 .25rem 2rem #0008; max-height: 80vh; overflow: auto;
+}
+.analytics-choice[hidden] { display: none; }
+.analytics-choice h2 { font-size: 1.25rem; margin: 0 0 .5rem; }
+.analytics-choice p { font-size: 1rem; color: #fff; }
+.analytics-choice a { color: #b5ddff; text-decoration: underline; }
+.analytics-choice button, [data-analytics-settings] {
+  font: inherit; cursor: pointer; color: #08131f; background: #fff;
+  border: 2px solid #718396; border-radius: .25rem; padding: .65rem 1rem;
+}
+.analytics-choice button { margin: .25rem; }
+.analytics-choice button:focus-visible, [data-analytics-settings]:focus-visible {
+  outline: 3px solid #ffca66; outline-offset: 3px;
+}
