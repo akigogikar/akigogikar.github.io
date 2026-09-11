@@ -1,6 +1,6 @@
 // Bump the ?v= on this import AND on both ask-aki tags in index.html whenever these files change,
 // otherwise returning visitors run cached JS against new markup.
-import { sendQuestion, validateConfig, MAX_ATTACHMENT_CHARS } from './ask-aki-transport.mjs?v=3';
+import { sendQuestion, validateConfig, MAX_ATTACHMENT_CHARS } from './ask-aki-transport.mjs?v=4';
 
 const panel = document.getElementById('ask-aki');
 const $ = id => document.getElementById(id);
