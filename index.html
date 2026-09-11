@@ -412,9 +412,12 @@
         <label for="aki-question" class="aki-sr-only">Your question for Ask Aki</label>
         <div class="aki-input-wrap">
           <textarea id="aki-question" rows="2" maxlength="2000" placeholder="Ask about my work…" enterkeyhint="send" aria-describedby="aki-privacy" required></textarea>
+          <input id="aki-file" type="file" class="aki-sr-only" tabindex="-1" accept=".pdf,.txt,.md,.markdown,.csv,.json,application/pdf,text/plain,text/markdown,text/csv,application/json">
+          <button id="aki-attach" class="aki-send aki-attach" type="button" aria-label="Attach a document (PDF or text, 10 MB max)" title="Attach a PDF or text file"><span aria-hidden="true">📎</span></button>
           <button id="aki-send" class="aki-send" type="submit" aria-label="Send question" disabled><span aria-hidden="true">↑</span></button>
           <button id="aki-stop" class="aki-send" type="button" aria-label="Stop response" hidden><span aria-hidden="true">■</span></button>
         </div>
+        <p id="aki-attachment" class="aki-attachment" hidden></p>
         <p id="aki-privacy">OneNewAI puts privacy and control first.<br>For confidential work, ask about a private workspace.</p>
         <div class="aki-footer"><span>Powered by <a href="https://onenew.ai" target="_blank" rel="noopener noreferrer">OneNewAI</a></span><a href="mailto:aki@onenew.ai">Talk to Aki <span aria-hidden="true">↗</span></a></div>
       </form>

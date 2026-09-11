@@ -1,4 +1,4 @@
-import { sendQuestion, validateConfig } from './ask-aki-transport.mjs';
+import { sendQuestion, validateConfig, MAX_ATTACHMENT_CHARS } from './ask-aki-transport.mjs';
 
 const panel = document.getElementById('ask-aki');
 const $ = id => document.getElementById(id);
@@ -11,6 +11,44 @@ let configPromise;
 let controller;
 let sessionId;
 let opener;
+let attachment;
+const MAX_FILE_BYTES = 10 * 1024 * 1024;
+const PDFJS = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/';
+
+async function extractText(file) {
+  if (file.size > MAX_FILE_BYTES) throw new Error('Please attach a file of 10 MB or smaller.');
+  if (file.type === 'application/pdf' || /\.pdf$/i.test(file.name)) {
+    // ponytail: pdf.js is fetched from the CDN only when a PDF is attached; text layer only, no OCR for scanned PDFs.
+    const pdfjs = await import(`${PDFJS}pdf.min.mjs`);
+    pdfjs.GlobalWorkerOptions.workerSrc = `${PDFJS}pdf.worker.min.mjs`;
+    const pdf = await pdfjs.getDocument({ data: await file.arrayBuffer() }).promise;
+    const parts = [];
+    for (let page = 1; page <= Math.min(pdf.numPages, 60) && parts.join('\n').length <= MAX_ATTACHMENT_CHARS; page++) {
+      const content = await (await pdf.getPage(page)).getTextContent();
+      parts.push(content.items.map(item => item.str).join(' '));
+    }
+    return parts.join('\n');
+  }
+  if (!file.type.startsWith('text/') && !/\.(txt|md|markdown|csv|json)$/i.test(file.name)) throw new Error('Please attach a PDF, text, Markdown, CSV, or JSON file.');
+  return file.text();
+}
+
+function clearAttachment() { attachment = undefined; $('aki-attachment').hidden = true; $('aki-attachment').textContent = ''; }
+
+async function attach(file) {
+  if (!file || controller) return;
+  try {
+    const text = await extractText(file);
+    if (!text.trim()) throw new Error('No readable text was found in that file. Scanned PDFs are not supported.');
+    attachment = { name: file.name, text };
+    const size = text.length > MAX_ATTACHMENT_CHARS ? `first ${MAX_ATTACHMENT_CHARS.toLocaleString()} characters` : `${text.length.toLocaleString()} characters`;
+    $('aki-attachment').textContent = `Attached: ${file.name} (${size}). Sent with your next question.`;
+    $('aki-attachment').hidden = false; notice(''); question.focus();
+  } catch (error) {
+    clearAttachment(); notice(error.message ?? 'Couldn’t read that file.');
+  }
+  $('aki-file').value = '';
+}
 
 function announce(text) { $('aki-announcement').textContent = text; }
 function notice(text, retryQuestion) {
@@ -106,8 +144,10 @@ async function submit(message) {
   sessionId ||= crypto.randomUUID();
   notice('');
   $('aki-welcome').hidden = true;
-  addMessage('user', text);
-  const reply = addMessage('assistant', 'Finding an answer in Aki’s public knowledge…');
+  const attached = attachment;
+  clearAttachment();
+  addMessage('user', attached ? `${text}\n📎 ${attached.name}` : text);
+  const reply = addMessage('assistant', attached ? 'Reading your document and finding an answer…' : 'Finding an answer in Aki’s public knowledge…');
   reply.row.classList.add('aki-message-pending');
   question.value = '';
   const active = new AbortController();
@@ -116,7 +156,7 @@ async function submit(message) {
   updateControls(); toBottom(); announce('Ask Aki is preparing an answer.');
   const slow = setTimeout(() => { if (!partial) reply.body.textContent = 'Still working on your answer. You can stop at any time.'; }, 12000);
   try {
-    const result = await sendQuestion({ config, sessionId, message: text, signal: active.signal, onUpdate: update => {
+    const result = await sendQuestion({ config, sessionId, message: text, attachment: attached, timeoutMs: attached ? 300000 : 90000, signal: active.signal, onUpdate: update => {
       const nearBottom = scroll.scrollHeight - scroll.scrollTop - scroll.clientHeight < 90;
       if (update.text) { partial = update.text; reply.body.textContent = partial; reply.row.classList.remove('aki-message-pending'); }
       if (nearBottom) toBottom();
@@ -140,8 +180,10 @@ question.addEventListener('input', updateControls);
 question.addEventListener('keydown', event => { if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); submit(question.value); } });
 for (const prompt of panel.querySelectorAll('[data-aki-question]')) prompt.addEventListener('click', () => submit(prompt.dataset.akiQuestion));
 $('aki-stop').addEventListener('click', () => controller?.abort('stopped'));
+$('aki-attach').addEventListener('click', () => { if (!controller) $('aki-file').click(); });
+$('aki-file').addEventListener('change', event => attach(event.target.files?.[0]));
 $('aki-reset').addEventListener('click', () => {
-  controller?.abort('reset'); controller = undefined; sessionId = undefined;
+  controller?.abort('reset'); controller = undefined; sessionId = undefined; clearAttachment();
   $('aki-messages').replaceChildren(); $('aki-welcome').hidden = false;
   question.value = ''; notice(''); updateControls(); announce('New conversation started. Previous messages were cleared from this panel, not from the service.'); question.focus();
 });
