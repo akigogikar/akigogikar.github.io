@@ -1,0 +1,87 @@
+.ask-aki-trigger { font: inherit; cursor: pointer; }
+html:not(.aki-ready) .ask-aki-trigger { display: none; }
+.aki-launcher, .aki-panel { font-family: var(--sans); }
+.aki-launcher {
+  position: fixed; right: max(24px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); z-index: 90;
+  display: flex; align-items: center; gap: 12px; padding: 10px 18px 10px 10px;
+  background: #101a2d; color: #fff; border: 1px solid #5c597f; border-radius: 999px;
+  box-shadow: 0 6px 25px #02081738; font-size: 15px; font-weight: 650; cursor: pointer;
+  transition: transform .18s, box-shadow .18s;
+}
+.aki-launcher:hover { transform: translateY(-3px); box-shadow: 0 10px 30px #02081750; }
+.aki-launcher-icon { display: block; width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; }
+.aki-launcher-arrow { margin-left: 8px; font-size: 20px; color: #bcb5fb; }
+.aki-panel {
+  position: fixed; inset: auto 24px 24px auto; width: 426px; max-width: calc(100vw - 32px);
+  height: min(718px, calc(100dvh - 48px)); max-height: calc(100dvh - 48px); margin: 0;
+  padding: 0; border: 1px solid #dce0e9; border-radius: 22px; overflow: hidden;
+  color: #142035; background: #fff; box-shadow: 0 24px 100px #07112445;
+  font-size: 15px; line-height: 1.55;
+}
+.aki-panel[open] { display: flex; flex-direction: column; animation: aki-appear .2s ease-out; }
+.aki-panel::backdrop { background: #0a112530; backdrop-filter: blur(2px); }
+.aki-panel [hidden], .aki-launcher[hidden] { display: none !important; }
+.aki-panel button, .aki-panel textarea { font: inherit; }
+.aki-panel button { cursor: pointer; }
+.aki-panel button:disabled { cursor: not-allowed; }
+.aki-panel :focus-visible, .aki-launcher:focus-visible, .ask-aki-trigger:focus-visible { outline: 3px solid #6a58ca; outline-offset: 3px; }
+.aki-header { display: flex; align-items: center; gap: 12px; flex-shrink: 0; padding: 20px 20px 16px; border-top: 3px solid #9b8df1; }
+.aki-avatar { border-radius: 50%; object-fit: cover; object-position: center 22%; border: 1px solid #e2deef; }
+.aki-identity { flex: 1; }
+.aki-identity h2 { margin: 0; font: 700 17px/1.3 var(--sans); letter-spacing: -.4px; }
+.aki-identity p { margin: 3px 0 0; font-size: 11px; color: #697186; }
+.aki-icon-button { display: grid; place-items: center; border: 0; color: #637088; background: transparent; border-radius: 10px; width: 36px; height: 36px; font-size: 27px !important; }
+.aki-icon-button:hover { background: #f0eff7; color: #3e3576; }
+.aki-mode { flex-shrink: 0; padding: 8px 22px; font-size: 11px; letter-spacing: .02em; color: #635677; background: #f4f2fa; border-block: 1px solid #ece8f4; }
+.aki-scroll { min-height: 0; flex: 1; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #d6d3e1 transparent; }
+.aki-welcome { padding: 25px 26px 12px; }
+.aki-spark { display: block; font-size: 30px; line-height: 1; color: #7865c1; margin-bottom: 12px; }
+.aki-welcome h3 { margin: 0 0 9px; font: 400 31px/1.1 var(--serif); letter-spacing: -.7px; text-wrap: initial; }
+.aki-welcome > p { font-size: 13px; line-height: 1.6; color: #637088; margin-bottom: 20px; }
+.aki-prompts { display: grid; gap: 8px; }
+.aki-prompts button { display: flex; align-items: center; justify-content: space-between; text-align: left; border: 1px solid #e3e3ed; border-radius: 12px; padding: 10px 13px; color: #243249; background: #fcfcfe; transition: border-color .15s, background .15s; }
+.aki-prompts button:hover { background: #f3f0fc; border-color: #a99adf; }
+.aki-prompts strong { display: block; font-size: 12px; font-weight: 600; }
+.aki-prompts small { display: block; color: #737b8d; font-size: 11px; margin-top: 2px; }
+.aki-prompts button > span:last-child { color: #80709f; font-size: 19px; }
+.aki-welcome .aki-human-note { margin: 17px 0 0; font-size: 11px; line-height: 1.65; color: #798194; }
+.aki-human-note a { color: #594689; text-underline-offset: 3px; }
+.aki-messages { padding: 0 22px; }
+.aki-messages:not(:empty) { padding-block: 22px; }
+.aki-message { margin-bottom: 24px; overflow-wrap: anywhere; }
+.aki-message:last-child { margin-bottom: 0; }
+.aki-message-label { display: block; margin-bottom: 6px; color: #717b8f; font-size: 10px; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+.aki-message-body { white-space: pre-wrap; margin: 0; font-size: 14px; line-height: 1.75; }
+.aki-message-user { margin-left: 36px; padding: 12px 15px; border-radius: 15px 15px 4px 15px; background: #f0ecfa; }
+.aki-message-user .aki-message-body { line-height: 1.55; }
+.aki-message-assistant { padding-right: 8px; }
+.aki-message-pending .aki-message-body { font-size: 12px; color: #7b728c; }
+.aki-sources { margin-top: 12px; border-top: 1px solid #eeeaf3; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.aki-sources a { display: inline-block; font-size: 11px; color: #554183; background: #f5f2fb; border: 1px solid #e7dff4; border-radius: 6px; padding: 4px 8px; text-decoration: none; }
+.aki-notice { flex-shrink: 0; font-size: 12px; color: #704726; background: #fff7eb; border-top: 1px solid #f1e4ce; padding: 10px 20px; }
+.aki-notice button { font-size: 12px; color: #5a376c; border: 0; background: none; text-decoration: underline; padding: 4px 0; }
+.aki-compose { flex-shrink: 0; border-top: 1px solid #ececf3; padding: 15px 20px 13px; background: #fff; }
+.aki-input-wrap { position: relative; display: flex; align-items: flex-end; gap: 8px; border: 1px solid #d9d6e5; border-radius: 14px; padding: 11px 11px 11px 13px; background: #fcfbfe; }
+.aki-input-wrap:focus-within { border-color: #9180cd; box-shadow: 0 0 0 3px #8d7bc714; }
+.aki-panel .aki-input-wrap textarea:focus-visible { outline: none; }
+.aki-input-wrap textarea { display: block; width: 100%; min-width: 0; min-height: 44px; max-height: 100px; resize: vertical; background: transparent; border: none; padding: 0; color: #243249; font-size: 13px; line-height: 1.6; outline: none; }
+.aki-input-wrap textarea::placeholder { color: #8a8399; }
+.aki-send { display: grid; place-items: center; flex-shrink: 0; width: 35px; height: 35px; border: 0; border-radius: 10px; background: #6b55ad; color: #fff; font-size: 22px !important; }
+.aki-send:disabled { color: #9c95aa; background: #ece8f3; }
+.aki-send:hover:not(:disabled) { background: #574292; }
+#aki-stop { font-size: 13px !important; }
+#aki-privacy { margin: 8px 0 10px; font-size: 10px; line-height: 1.5; color: #7d8594; }
+.aki-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 10px; color: #8a8f9e; }
+.aki-footer a { color: #675685; text-decoration: none; }
+.aki-footer a:hover { text-decoration: underline; }
+.aki-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@keyframes aki-appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (max-width: 560px) {
+  .aki-panel { inset: auto 8px max(8px, env(safe-area-inset-bottom)) 8px; width: auto; max-width: none; height: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); max-height: none; border-radius: 20px; }
+  .aki-header { padding: 16px 18px 13px; }
+  .aki-welcome { padding: 22px 22px 16px; }
+  .aki-compose { padding: 13px 16px; }
+  .aki-input-wrap textarea { font-size: 16px; }
+  .aki-launcher { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion: reduce) { .aki-panel[open] { animation: none; } .aki-launcher, .aki-prompts button { transition: none; } }

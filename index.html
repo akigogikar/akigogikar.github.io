@@ -12,9 +12,9 @@
     >
     <meta name="author" content="Akhilesh (Aki) Gogikar">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#08131f">
+    <meta name="theme-color" content="#020817">
     <link rel="canonical" href="https://akigogikar.com/">
-    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="./assets/favicon.svg?v=2" type="image/svg+xml">
     <link rel="alternate" href="./llms.txt" type="text/plain" title="LLM-readable profile">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://akigogikar.com/">
@@ -38,7 +38,9 @@
     <meta name="twitter:image" content="https://akigogikar.com/assets/og-image.jpg">
     <meta name="twitter:image:alt" content="Aki Gogikar — private AI, controlled deployment and agent governance">
     <title>Aki Gogikar | Private AI Built Around Organizations</title>
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="assets/ask-aki.css?v=2">
+    <script type="module" src="assets/ask-aki.js?v=1"></script>
     <!-- Keep this block byte-identical to jsonld.json (minus _-prefixed keys). -->
     <script type="application/ld+json">
       {
@@ -119,7 +121,7 @@
 
     <header class="site-header">
       <a class="wordmark" href="#top" aria-label="Aki Gogikar, home">
-        <span class="wordmark-dot" aria-hidden="true"></span>
+        <img class="wordmark-icon" src="./assets/favicon.svg?v=2" width="32" height="32" alt="" aria-hidden="true">
         <span>Aki Gogikar</span>
       </a>
       <nav aria-label="Primary">
@@ -146,6 +148,7 @@
         <div class="hero-actions">
           <a class="button button-primary" href="#work">Explore my work</a>
           <a class="button button-secondary" href="mailto:aki@onenew.ai?subject=Speaking%20or%20collaboration%20inquiry">Invite me to speak</a>
+          <button class="button button-secondary ask-aki-trigger" type="button" data-open-ask-aki aria-haspopup="dialog" aria-controls="ask-aki">Ask Aki <span aria-hidden="true">↗</span></button>
         </div>
         <dl class="hero-meta">
           <div>
@@ -374,5 +377,45 @@
       <p>© 2026 Aki Gogikar · Mendel Info Labs LLC</p>
       <p>Author byline: Akhilesh Gogikar · <a href="mailto:aki@onenew.ai">aki@onenew.ai</a></p>
     </footer>
+
+    <button class="aki-launcher" type="button" data-open-ask-aki aria-haspopup="dialog" aria-controls="ask-aki" hidden>
+      <img class="aki-launcher-icon" src="./assets/favicon.svg?v=2" width="34" height="34" alt="" aria-hidden="true">
+      <span>Ask Aki</span><span class="aki-launcher-arrow" aria-hidden="true">↗</span>
+    </button>
+    <dialog id="ask-aki" class="aki-panel" aria-labelledby="aki-title" aria-describedby="aki-description">
+      <header class="aki-header">
+        <img class="aki-avatar" src="assets/aki-gogikar.jpg" alt="" width="42" height="42">
+        <div class="aki-identity"><h2 id="aki-title">Ask Aki</h2><p id="aki-description">AI guide to my public work</p></div>
+        <button class="aki-icon-button" type="button" id="aki-reset" aria-label="Start a new conversation" title="New conversation" hidden>↺</button>
+        <button class="aki-icon-button" type="button" id="aki-close" aria-label="Close Ask Aki" title="Close (Esc)">×</button>
+      </header>
+      <div class="aki-mode" id="aki-mode">Checking availability…</div>
+      <div class="aki-scroll" id="aki-scroll">
+        <section class="aki-welcome" id="aki-welcome" aria-label="Conversation starters">
+          <span class="aki-spark" aria-hidden="true">✳</span>
+          <h3>What are you<br>curious about?</h3>
+          <p>Explore what I’m building, the research behind it, or where your idea fits.</p>
+          <div class="aki-prompts">
+            <button type="button" data-aki-question="What is OneNewAI, and how is it different from ActPass?"><span><strong>OneNewAI or ActPass?</strong><small>Understand the difference</small></span><span aria-hidden="true">↗</span></button>
+            <button type="button" data-aki-question="What research has Aki published?"><span><strong>Explore my research</strong><small>Papers, code, and ideas</small></span><span aria-hidden="true">↗</span></button>
+            <button type="button" data-aki-question="How can I discuss a private AI project with Aki?"><span><strong>Have a project in mind?</strong><small>Find a good starting point</small></span><span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="aki-human-note">An AI assistant, not Aki himself.<br>For a personal reply, <a href="mailto:aki@onenew.ai">email Aki <span aria-hidden="true">↗</span></a></p>
+        </section>
+        <div id="aki-messages" class="aki-messages" role="log" aria-label="Conversation" aria-live="off"></div>
+      </div>
+      <div class="aki-notice" id="aki-notice" role="status" hidden></div>
+      <form class="aki-compose" id="aki-form">
+        <label for="aki-question" class="aki-sr-only">Your question for Ask Aki</label>
+        <div class="aki-input-wrap">
+          <textarea id="aki-question" rows="2" maxlength="2000" placeholder="Ask about my work…" enterkeyhint="send" aria-describedby="aki-privacy" required></textarea>
+          <button id="aki-send" class="aki-send" type="submit" aria-label="Send question" disabled><span aria-hidden="true">↑</span></button>
+          <button id="aki-stop" class="aki-send" type="button" aria-label="Stop response" hidden><span aria-hidden="true">■</span></button>
+        </div>
+        <p id="aki-privacy">OneNewAI puts privacy and control first.<br>For confidential work, ask about a private workspace.</p>
+        <div class="aki-footer"><span>Powered by <a href="https://onenew.ai" target="_blank" rel="noopener noreferrer">OneNewAI</a></span><a href="mailto:aki@onenew.ai">Talk to Aki <span aria-hidden="true">↗</span></a></div>
+      </form>
+      <span class="aki-sr-only" id="aki-announcement" role="status" aria-live="polite"></span>
+    </dialog>
   </body>
 </html>
