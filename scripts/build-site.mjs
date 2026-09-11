@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 execFileSync(process.execPath, ['--test', 'scripts/check-ask-aki.test.mjs'], { cwd: root, stdio: 'inherit' });
 execFileSync(process.execPath, ['scripts/check-seo.mjs'], { cwd: root, stdio: 'inherit' });
-const files = ['index.html', 'styles.css', 'jsonld.json', 'llms.txt', 'robots.txt', 'sitemap.xml', 'CNAME', 'press/index.html', 'assets/aki-gogikar.jpg', 'assets/favicon.svg', 'assets/og-image.jpg', 'assets/ask-aki.css', 'assets/ask-aki.js', 'assets/ask-aki-transport.mjs', 'assets/ask-aki-config.json'];
+const files = ['index.html', 'styles.css', 'jsonld.json', 'llms.txt', 'robots.txt', 'sitemap.xml', 'CNAME', 'press/index.html', 'assets/aki-gogikar.jpg', 'assets/favicon.svg', 'assets/og-image.jpg', 'assets/ask-aki.css', 'assets/ask-aki.js', 'assets/ask-aki-transport.mjs', 'assets/ask-aki-config.json', 'assets/analytics.css', 'assets/analytics.js', 'privacy/index.html'];
 await mkdir(path.join(root, 'dist'), { recursive: true });
 const staging = await mkdtemp(path.join(root, 'dist', 'build-'));
 for (const file of files) {
