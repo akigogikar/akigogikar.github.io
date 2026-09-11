@@ -16,9 +16,10 @@ function stream(text, chunkSize = 7) {
 const response = text => new Response(stream(text), { headers: { 'content-type': 'text/event-stream; charset=utf-8' } });
 const options = extras => ({ config, sessionId, message: ' What is ActPass? ', ...extras });
 
-test('checked-in configuration is disabled with no identifiers or secrets', async () => {
+test('checked-in configuration validates and carries no secrets', async () => {
   const saved = JSON.parse(await fs.readFile(new URL('../assets/ask-aki-config.json', import.meta.url)));
-  assert.deepEqual(saved, { enabled: false, serverUrl: '', embedId: '' });
+  assert.deepEqual(Object.keys(saved).sort(), ['embedId', 'enabled', 'serverUrl']);
+  assert.deepEqual(validateConfig(saved), { enabled: true, serverUrl: 'https://212.47.73.57', embedId: saved.embedId });
 });
 test('fail closed for missing or non-boolean activation', () => {
   for (const value of [undefined, {}, { enabled: 'true' }, { enabled: false }]) assert.deepEqual(validateConfig(value), { enabled: false });

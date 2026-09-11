@@ -1,5 +1,5 @@
 {
-  "enabled": false,
-  "serverUrl": "",
-  "embedId": ""
+  "enabled": true,
+  "serverUrl": "https://212.47.73.57/",
+  "embedId": "833e1b3a-fdb5-4849-87b8-ccee67b3b419"
 }
