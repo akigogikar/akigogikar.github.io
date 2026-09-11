@@ -1,0 +1,11 @@
+# GitHub Pages (Jekyll) build config for akigogikar.com.
+# These paths are development artifacts. They stay in git, but must never be
+# served from the public site: they contain internal paths, branch names and
+# implementation notes. Verified 2026-09-11 that /docs/ask-aki-readiness.md,
+# /docs/RELEASE-STATUS.md, /knowledge/ and /scripts/ all returned HTTP 200.
+exclude:
+  - docs
+  - knowledge
+  - scripts
+  - dist
+  - .gitignore
