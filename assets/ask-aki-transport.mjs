@@ -24,6 +24,29 @@ export function validateConfig(config) {
   return { enabled: true, serverUrl: url.origin, embedId: config.embedId };
 }
 
+// A 2B model cannot be trusted to refuse these by instruction alone: probed 2026-09-11, it restated
+// fabricated ISO 27001 / SOC 2 / customer / pricing claims from an attached file even while hedging.
+// So the answer text is filtered here, deterministically, and fails closed.
+const RISKY_CLAIM = /\b(?:ISO[\s/-]?\d{4,5}|SOC[\s-]?2|HITRUST|FedRAMP|PCI[\s-]?DSS|HIPAA|CCPA|certif(?:ied|ication)|accredit(?:ed|ation)|uptime|SLA|guarantee(?:d|s)?)\b|\bGDPR[\s-]?compliant\b|\d+(?:\.\d+)?\s?%\s*(?:uptime|availability)|[$€£]\s?\d|\b(?:USD|EUR|GBP|INR)\s?\d|\b\d[\d,]*(?:\.\d+)?\s?(?:USD|EUR|GBP|INR)\b/i;
+export const BLOCKED_ANSWER = 'I can’t confirm certifications, compliance status, pricing, customers or performance guarantees here — those only come from Aki directly. Email aki@onenew.ai and he’ll answer precisely.';
+
+// Mirrors the citation allowlist: a hallucinated or attacker-seeded domain must never reach the visitor
+// as clickable-looking text. actpass.io, for example, resolves to a live blank page.
+function stripForeignUrls(text) {
+  return text.replace(/\bhttps?:\/\/[^\s<>()[\]"'`]+/gi, match => {
+    try {
+      const url = new URL(match);
+      return PUBLIC_HOSTS.has(url.hostname) ? match : '[link removed]';
+    } catch { return '[link removed]'; }
+  });
+}
+
+export function sanitizeAnswer(text) {
+  const value = String(text ?? '');
+  if (RISKY_CLAIM.test(value)) return { text: BLOCKED_ANSWER, blocked: true };
+  return { text: stripForeignUrls(value), blocked: false };
+}
+
 export function publicSources(sources = []) {
   if (!Array.isArray(sources)) return [];
   const result = new Map();
@@ -98,6 +121,7 @@ export async function sendQuestion({ config, sessionId, message, attachment, sig
   if (!response.headers.get('content-type')?.includes('text/event-stream')) throw new Error('Ask Aki returned an unexpected response. Please try again later.');
   let text = '';
   let sources = [];
+  let blocked = false;
   await readSSE(response.body, event => {
     if (event.type === 'abort' || event.type === 'error' || event.error) throw new Error('Ask Aki couldn’t complete this answer. Please try again or email Aki.');
     if (typeof event.textResponse === 'string') {
@@ -109,8 +133,12 @@ export async function sendQuestion({ config, sessionId, message, attachment, sig
       ...(Array.isArray(event.sources) ? event.sources : []),
       ...(Array.isArray(event.citations) ? event.citations : []),
     ]);
-    onUpdate?.({ text, sources });
+    const safe = sanitizeAnswer(text);
+    if (safe.blocked) { blocked = true; sources = []; }
+    onUpdate?.({ text: safe.text, sources });
   });
   if (!text.trim()) throw new Error('No answer was returned. Please try again or email Aki.');
-  return { text, sources };
+  const safe = sanitizeAnswer(text);
+  if (safe.blocked || blocked) return { text: BLOCKED_ANSWER, sources: [], blocked: true };
+  return { text: safe.text, sources, blocked: false };
 }

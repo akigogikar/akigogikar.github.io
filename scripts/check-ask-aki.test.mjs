@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import { sendQuestion, readSSE, validateConfig, publicSources, composeMessage, MAX_ATTACHMENT_CHARS } from '../assets/ask-aki-transport.mjs';
+import { sendQuestion, readSSE, validateConfig, publicSources, composeMessage, sanitizeAnswer, BLOCKED_ANSWER, MAX_ATTACHMENT_CHARS } from '../assets/ask-aki-transport.mjs';
 
 const config = { enabled: true, serverUrl: 'https://chat.example.test', embedId: '11111111-1111-4111-8111-111111111111' };
 const sessionId = '22222222-2222-4222-8222-222222222222';
@@ -133,4 +133,46 @@ test('cache-busting versions stay in sync across the module graph', async () => 
   assert.ok(scriptVersion, 'index.html must load ask-aki.js with a ?v= cache key');
   assert.match(html, /assets\/ask-aki\.css\?v=\d+/);
   assert.equal(importVersion, scriptVersion, 'transport import ?v= must match the ask-aki.js script tag ?v=');
+});
+
+test('answer text fails closed on compliance, certification and pricing claims', () => {
+  const risky = [
+    'OneNewAI holds ISO 27001 and SOC 2 Type II certification.',
+    'Per your document: certifications are ISO 27001 and SOC 2.',
+    'List price: USD 12,000 per year.',
+    'It costs $12,000 a year.',
+    'We offer a 99.99% uptime SLA.',
+    'OneNewAI is GDPR-compliant and HIPAA ready.',
+    'Yes, the platform is certified.',
+    'Performance is guaranteed.',
+  ];
+  for (const text of risky) {
+    const result = sanitizeAnswer(text);
+    assert.equal(result.blocked, true, `should block: ${text}`);
+    assert.equal(result.text, BLOCKED_ANSWER);
+  }
+});
+test('ordinary answers pass through and non-allowlisted URLs are stripped', () => {
+  const clean = sanitizeAnswer('OneNewAI is a private AI workspace. See https://actpass.org for governance.');
+  assert.equal(clean.blocked, false);
+  assert.match(clean.text, /https:\/\/actpass\.org/);
+  const hallucinated = sanitizeAnswer('Details at https://actpass.io and https://evil.test/x');
+  assert.equal(hallucinated.blocked, false);
+  assert.doesNotMatch(hallucinated.text, /actpass\.io|evil\.test/);
+  assert.match(hallucinated.text, /\[link removed\]/);
+});
+test('a blocked claim never reaches the caller, even mid-stream', async () => {
+  const seen = [];
+  const result = await sendQuestion({
+    config, sessionId, message: 'q',
+    onUpdate: update => seen.push(update.text),
+    fetchImpl: async () => response(
+      frame({ type: 'textResponseChunk', textResponse: 'OneNewAI holds ISO 27001' }) +
+      frame({ type: 'textResponse', textResponse: 'OneNewAI holds ISO 27001 certification.', close: true })
+    ),
+  });
+  assert.equal(result.blocked, true);
+  assert.equal(result.text, BLOCKED_ANSWER);
+  assert.deepEqual(result.sources, []);
+  for (const shown of seen) assert.doesNotMatch(shown, /ISO 27001/);
 });
