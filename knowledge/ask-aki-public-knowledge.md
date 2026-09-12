@@ -15,7 +15,7 @@ follow-up.
 ## Aki Gogikar
 
 Akhilesh “Aki” Gogikar is the founder and EVP of Mendel Info Labs. He leads
-product and engineering across OneNewAI and ActPass and publishes research and
+product and engineering across OneNew and ActPass and publishes research and
 writing about private AI systems, agent security, organizational memory,
 efficient inference, optimization, and complex systems.
 
@@ -31,20 +31,20 @@ Email: <aki@onenew.ai>
 ## Mendel Info Labs
 
 Mendel Info Labs builds and operates trust-first AI products. Its current
-public product work includes OneNewAI and ActPass. Aki Gogikar is its founder
+public product work includes OneNew and ActPass. Aki Gogikar is its founder
 and EVP and leads product and engineering.
 
 Public site: <https://mendelinfolabs.com/>
 
-## OneNewAI
+## OneNew
 
-OneNewAI is the single customer-facing private-AI offer built around an
+OneNew is the single customer-facing private-AI offer built around an
 organization’s approved data, workflows, policies, people, and infrastructure.
 Its service model is designed for organizations that need a controlled
 environment for grounded AI work rather than only a public-model chat
 subscription.
 
-OneNewAI’s broader product direction spans:
+OneNew’s broader product direction spans:
 
 - persistent private workspaces for people and AI workers;
 - grounded chat and artifacts tied to approved organizational sources;
@@ -58,7 +58,7 @@ approved custom tools describe that broader direction; they must not be
 presented as uniformly available today. The exact availability of individual
 surfaces and deployment options can change. Ask Aki must distinguish current
 public capabilities from product direction and direct deployment, security,
-pricing, and compliance questions to the current OneNewAI site or to Aki for
+pricing, and compliance questions to the current OneNew site or to Aki for
 confirmation.
 
 Public site: <https://onenew.ai/>
@@ -75,15 +75,15 @@ refunds, deployments, outbound email, or CRM changes, but Ask Aki must not imply
 that a specific integration or evidence mechanism is currently active without
 fresh verification.
 
-ActPass is independent from OneNewAI: it is designed to govern agents and tools
-from multiple vendors. OneNewAI may use ActPass as a governance boundary, but
-ActPass must not be described as merely a OneNewAI feature.
+ActPass is independent from OneNew: it is designed to govern agents and tools
+from multiple vendors. OneNew may use ActPass as a governance boundary, but
+ActPass must not be described as merely a OneNew feature.
 
 Public site: <https://actpass.org/>
 
-## How OneNewAI and ActPass fit together
+## How OneNew and ActPass fit together
 
-OneNewAI’s service model is designed to bring together a private workspace,
+OneNew’s service model is designed to bring together a private workspace,
 approved knowledge, controlled execution, and a human operating surface.
 ActPass provides a separate deterministic authorization decision for
 consequential agent actions. The two can be evaluated independently or as a
@@ -99,7 +99,7 @@ scoped, consented to by the visitor, and governed by a fresh ActPass decision.
 
 Triune and TurboServe are CPU-first inference research intended to explore how
 private AI can become practical without expensive GPU infrastructure. They are
-research and proof infrastructure, not marketed OneNewAI products.
+research and proof infrastructure, not marketed OneNew products.
 
 Aki is also an author of the 2026 paper “Adaptive Runge-Kutta step control for
 RK-Adam,” a compute-matched machine-learning study of adaptive Runge-Kutta
@@ -121,7 +121,7 @@ reply. Aki can be contacted at <aki@onenew.ai>.
 
 ### Which product should I consider?
 
-Consider OneNewAI when the main requirement is a private organizational AI
+Consider OneNew when the main requirement is a private organizational AI
 workspace grounded in approved data and deployed with meaningful control.
 Consider ActPass when the main requirement is deterministic authorization and
 evidence for consequential AI-agent actions. Consider the two together when
@@ -155,7 +155,7 @@ sensitive data in the public chat.
   performance results, partnerships, or product availability.
 - Do not describe any system as “fully protected,” “risk free,” or guaranteed
   to eliminate hallucinations.
-- Prefer “powered by OneNewAI and governed by ActPass” only when the relevant
+- Prefer “powered by OneNew and governed by ActPass” only when the relevant
   ActPass enforcement is actually active for the described action.
 - If the approved sources do not support an answer, say so plainly and provide
   the most relevant public link or human contact.

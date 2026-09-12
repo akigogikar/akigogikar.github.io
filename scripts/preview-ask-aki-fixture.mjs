@@ -22,7 +22,7 @@ window.fetch = async (url, init = {}) => {
       timer = setInterval(() => {
         if (/fail/i.test(message)) { c.enqueue(enc.encode('data: '+JSON.stringify({type:'abort',error:'private detail',close:true})+'\\n\\n')); c.close(); clearInterval(timer); return; }
         if (i < words.length) c.enqueue(enc.encode('data: '+JSON.stringify({type:'textResponseChunk',textResponse:words[i++]})+'\\n\\n'));
-        else { c.enqueue(enc.encode('data: '+JSON.stringify({close:true,citations:[{url:'https://onenew.ai/',title:'OneNewAI'}]})+'\\n\\n')); c.close(); clearInterval(timer); }
+        else { c.enqueue(enc.encode('data: '+JSON.stringify({close:true,citations:[{url:'https://onenew.ai/',title:'OneNew'}]})+'\\n\\n')); c.close(); clearInterval(timer); }
       }, /slow/i.test(message) ? 700 : 12);
       init.signal.addEventListener('abort', () => {clearInterval(timer); try {c.error(init.signal.reason);} catch {}}, {once:true});
     }, cancel() { clearInterval(timer); }

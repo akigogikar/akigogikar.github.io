@@ -1,6 +1,6 @@
 # Aki Gogikar
 
-> Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNewAI and ActPass. He builds private, controlled AI systems around privacy-aware organizations and researches agent governance, organizational memory, efficient inference, machine learning systems and complexity.
+> Akhilesh (Aki) Gogikar is the founder and Executive Vice President of Mendel Info Labs, where he leads product and engineering across OneNew and ActPass. He builds private, controlled AI systems around privacy-aware organizations and researches agent governance, organizational memory, efficient inference, machine learning systems and complexity.
 
 Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/llms.txt
 
@@ -13,11 +13,11 @@ Deploy at https://akigogikar.com — serve this file at https://akigogikar.com/l
 ## Role
 
 - Founder and Executive Vice President, Mendel Info Labs LLC (https://www.mendelinfolabs.com)
-- Leads product and engineering across OneNewAI and ActPass
+- Leads product and engineering across OneNew and ActPass
 
 ## What he builds
 
-- [OneNewAI](https://onenew.ai): the single customer-facing offer for private AI built around each organization; its service model is designed to discover the requirement, design the controlled solution, connect approved data, provision a managed private-AI Workspace on customer-controlled infrastructure, and operate it with the customer, with a broader direction spanning Workspace, API, Desktop, organizational memory, private model access, and approved custom tools
+- [OneNew](https://onenew.ai): the single customer-facing offer for private AI built around each organization; its service model is designed to discover the requirement, design the controlled solution, connect approved data, provision a managed private-AI Workspace on customer-controlled infrastructure, and operate it with the customer, with a broader direction spanning Workspace, API, Desktop, organizational memory, private model access, and approved custom tools
 - [ActPass](https://actpass.org): a separate, vendor-neutral governance product that evaluates consequential agent actions as allow, deny, or needs approval before execution
 
 ## Writing

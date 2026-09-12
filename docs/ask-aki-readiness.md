@@ -29,7 +29,7 @@ Outcome: verify the custom website widget, not the OneNew administration UI.
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Homepage and press logo | Pass | Browser loaded the same A-monogram SVG used by each page's favicon. |
-| Synthetic streaming reply | Pass | Local browser fixture rendered chunks and completed with an explicit public OneNewAI citation. |
+| Synthetic streaming reply | Pass | Local browser fixture rendered chunks and completed with an explicit public OneNew citation. |
 | Untrusted response markup | Pass | `<img src=x onerror=alert(1)>` remained literal text; zero injected message images. |
 | Backend error | Pass | Generic recovery message; synthetic private error detail was not displayed. |
 | Edit and retry | Pass | Original question restored and composer focused. |

@@ -58,9 +58,9 @@ test('handles split frames, CRLF and multibyte characters', async () => {
 test('appends chunks and replaces with final full text without duplication', async () => {
   const seen = [];
   const result = await sendQuestion(options({ onUpdate: update => seen.push(update.text), fetchImpl: async () => response(
-    frame({ type: 'textResponseChunk', textResponse: 'One' }) + frame({ type: 'textResponseChunk', textResponse: 'New' }) + frame({ type: 'textResponse', textResponse: 'OneNewAI', close: true })
+    frame({ type: 'textResponseChunk', textResponse: 'One' }) + frame({ type: 'textResponseChunk', textResponse: 'New' }) + frame({ type: 'textResponse', textResponse: 'OneNew workspaces', close: true })
   ) }));
-  assert.deepEqual(seen, ['One', 'OneNew', 'OneNewAI']); assert.equal(result.text, 'OneNewAI');
+  assert.deepEqual(seen, ['One', 'OneNew', 'OneNew workspaces']); assert.equal(result.text, 'OneNew workspaces');
 });
 test('ignores unknown events and supports DONE', async () => {
   const result = await sendQuestion(options({ fetchImpl: async () => response(frame({ type: 'progress' }) + frame({ type: 'textResponseChunk', textResponse: 'Answer' }) + 'data: [DONE]\n\n') }));
@@ -90,8 +90,8 @@ test('enforces a timeout even while the service is unresponsive', async () => {
   } finally { clearTimeout(keepAlive); }
 });
 test('only shows explicitly public citation URLs; deduplicates', () => {
-  const sources = publicSources([{ url: 'https://onenew.ai/', title: 'OneNewAI' }, { url: 'https://onenew.ai/', title: 'OneNewAI' }, { url: 'javascript:alert(1)' }, { url: 'http://onenew.ai/' }, { url: 'https://onenew.ai.evil.test/' }, { url: 'https://user:pass@onenew.ai/' }, { url: '/private/documents/459' }, { title: '/private/knowledge.txt' }]);
-  assert.deepEqual(sources, [{ url: 'https://onenew.ai/', title: 'OneNewAI' }]);
+  const sources = publicSources([{ url: 'https://onenew.ai/', title: 'OneNew' }, { url: 'https://onenew.ai/', title: 'OneNew' }, { url: 'javascript:alert(1)' }, { url: 'http://onenew.ai/' }, { url: 'https://onenew.ai.evil.test/' }, { url: 'https://user:pass@onenew.ai/' }, { url: '/private/documents/459' }, { title: '/private/knowledge.txt' }]);
+  assert.deepEqual(sources, [{ url: 'https://onenew.ai/', title: 'OneNew' }]);
 });
 test('current citation frames retain public URLs across empty closing citations', async () => {
   const result = await sendQuestion(options({ fetchImpl: async () => response(
@@ -137,12 +137,12 @@ test('cache-busting versions stay in sync across the module graph', async () => 
 
 test('answer text fails closed on compliance, certification and pricing claims', () => {
   const risky = [
-    'OneNewAI holds ISO 27001 and SOC 2 Type II certification.',
+    'OneNew holds ISO 27001 and SOC 2 Type II certification.',
     'Per your document: certifications are ISO 27001 and SOC 2.',
     'List price: USD 12,000 per year.',
     'It costs $12,000 a year.',
     'We offer a 99.99% uptime SLA.',
-    'OneNewAI is GDPR-compliant and HIPAA ready.',
+    'OneNew is GDPR-compliant and HIPAA ready.',
     'Yes, the platform is certified.',
     'Performance is guaranteed.',
   ];
@@ -153,7 +153,7 @@ test('answer text fails closed on compliance, certification and pricing claims',
   }
 });
 test('ordinary answers pass through and non-allowlisted URLs are stripped', () => {
-  const clean = sanitizeAnswer('OneNewAI is a private AI workspace. See https://actpass.org for governance.');
+  const clean = sanitizeAnswer('OneNew is a private AI workspace. See https://actpass.org for governance.');
   assert.equal(clean.blocked, false);
   assert.match(clean.text, /https:\/\/actpass\.org/);
   const hallucinated = sanitizeAnswer('Details at https://actpass.io and https://evil.test/x');
@@ -167,8 +167,8 @@ test('a blocked claim never reaches the caller, even mid-stream', async () => {
     config, sessionId, message: 'q',
     onUpdate: update => seen.push(update.text),
     fetchImpl: async () => response(
-      frame({ type: 'textResponseChunk', textResponse: 'OneNewAI holds ISO 27001' }) +
-      frame({ type: 'textResponse', textResponse: 'OneNewAI holds ISO 27001 certification.', close: true })
+      frame({ type: 'textResponseChunk', textResponse: 'OneNew holds ISO 27001' }) +
+      frame({ type: 'textResponse', textResponse: 'OneNew holds ISO 27001 certification.', close: true })
     ),
   });
   assert.equal(result.blocked, true);
